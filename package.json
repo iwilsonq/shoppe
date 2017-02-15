@@ -1,0 +1,12 @@
+{
+  "name": "shoppe-membership",
+  "author": "Ian Wilson",
+  "description": "A membership system patterned after Devise",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-watch": "*",
+    "should": "^11.2.0"
+  }
+}
