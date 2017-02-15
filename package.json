@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "author": "Ian Wilson",
   "description": "A membership system patterned after Devise",
-  "dependencies": {},
+  "dependencies": {
+    "secondthought": "github:robconery/second-thought"
+  },
   "devDependencies": {
     "grunt": "*",
     "grunt-contrib-jshint": "*",
