@@ -3,7 +3,11 @@
   "version": "0.0.1",
   "author": "Ian Wilson",
   "description": "A membership system patterned after Devise",
+  "scripts": {
+    "test": "mocha -w"
+  },
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "secondthought": "github:robconery/second-thought"
   },
   "devDependencies": {

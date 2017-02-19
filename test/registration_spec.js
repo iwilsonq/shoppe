@@ -14,14 +14,16 @@ describe('Registration', () => {
   describe('a valid application', () => {
     var regResult = {};
     before(done => {
-      regResult = reg.applyForMembership({
-        email: 'iwilsonq@gmail.com',
-        password: '123',
-        confirm: '123'
-      }, function(err, result) {
-        regResult = result;
-        done();
-      });
+      db.user.destroyAll(function(err, result) {
+        regResult = reg.applyForMembership({
+          email: 'iwilsonq@gmail.com',
+          password: '123',
+          confirm: '123'
+        }, function(err, result) {
+          regResult = result;
+          done();
+        });
+      })
     });
 
     it('is a success', () => {
@@ -30,9 +32,18 @@ describe('Registration', () => {
     it('creates a user', () => {
       regResult.user.should.be.defined;
     });
-    it('creates a log entry');
-    it('sets the user\'s status to approved');
-    it('offers a welcome message');
+    it('creates a log entry', () => {
+      regResult.log.should.be.defined;
+    });
+    it('sets the user\'s status to approved', () => {
+      regResult.user.status.should.equal("approved");
+    });
+    it('offers a welcome message', () => {
+      regResult.message.should.equal("Welcome!");
+    });
+    it('increments the sign in count', () => {
+      regResult.user.signInCount.should.equal(1);
+    });
   });
   describe('an empty or null email', () => {
     it('is not successful');

@@ -4,8 +4,8 @@ var Log = function(args) {
   var log = {};
   log.subject = args.subject;
   log.entry = args.entry;
-  log.createdAt = args.createdAt || new Date();
   log.userId = args.userId;
+  log.createdAt = args.createdAt || new Date();
 
   return log;
 };
